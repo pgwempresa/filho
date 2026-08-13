@@ -408,13 +408,38 @@ h2 {
   color: #14324a;
   font-size: 17px;
   font-weight: 800;
+  min-height: 55px;
   padding: 15px 8px;
+  position: relative;
 }
 
 .amounts button.selected {
   background: rgba(4, 120, 76, 0.08);
   border-color: var(--green);
   color: var(--green);
+}
+
+.amounts button.recommended {
+  background: #fffaf0;
+  border-color: var(--gold);
+  color: #14324a;
+  padding-top: 22px;
+}
+
+.amounts button.recommended span {
+  background: linear-gradient(180deg, #e5c16f, #b98628);
+  border-radius: 999px;
+  color: #15110a;
+  font-size: 9px;
+  font-weight: 800;
+  left: 50%;
+  letter-spacing: 0.04em;
+  padding: 4px 7px;
+  position: absolute;
+  text-transform: uppercase;
+  top: -9px;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 .pix-box {
@@ -494,35 +519,86 @@ textarea {
   margin: 8px 0 0;
 }
 
-.support-popup {
-  background: #ffffff;
-  border: 1px solid rgba(4, 120, 76, 0.18);
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(23, 45, 63, 0.2);
-  left: 50%;
-  max-width: 420px;
-  padding: 20px 18px;
+.support-modal {
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.72);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 18px;
   position: fixed;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100vw - 34px);
-  z-index: 50;
+  z-index: 80;
+}
+
+.support-popup {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(202, 164, 90, 0.26), transparent 42%),
+    #ffffff;
+  border: 1px solid rgba(202, 164, 90, 0.3);
+  border-radius: 28px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+  max-width: 470px;
+  padding: 38px 24px 24px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.popup-kicker {
+  color: var(--green);
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .support-popup strong {
   color: var(--ink);
   display: block;
-  font-size: 22px;
+  font-size: clamp(34px, 10vw, 48px);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  margin: 0 28px 8px 0;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  margin: 0 16px 14px;
+  text-transform: uppercase;
 }
 
 .support-popup p {
   color: var(--muted);
-  font-size: 15px;
-  line-height: 1.38;
+  font-size: 16px;
+  line-height: 1.42;
+  margin: 0 0 18px;
+}
+
+.popup-highlight {
+  align-items: center;
+  background: rgba(4, 120, 76, 0.08);
+  border: 1px solid rgba(4, 120, 76, 0.18);
+  border-radius: 18px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 16px;
+  padding: 14px;
+  text-align: left;
+}
+
+.popup-highlight span {
+  color: #25455a;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.popup-highlight strong {
+  color: var(--green);
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  line-height: 1;
   margin: 0;
+  text-transform: uppercase;
 }
 
 .popup-close {
@@ -537,6 +613,19 @@ textarea {
   right: 10px;
   top: 10px;
   width: 34px;
+}
+
+.popup-action {
+  background: linear-gradient(180deg, #0aa76b, #04784c);
+  border-radius: 14px;
+  box-shadow: 0 12px 22px rgba(4, 120, 76, 0.22);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 17px 16px;
+  text-transform: uppercase;
+  width: 100%;
 }
 
 @media (min-width: 560px) {

@@ -1,32 +1,194 @@
+body {
+  background:
+    radial-gradient(circle at 50% -10%, rgba(202, 164, 90, 0.26), transparent 38%),
+    linear-gradient(180deg, #07110d 0%, #0d2638 48%, #eef3f7 48%);
+}
+
+.contribution-page {
+  min-height: 100svh;
+  padding: 18px 12px 30px;
+}
+
+.contribution-shell {
+  margin: 0 auto;
+  max-width: 480px;
+  width: 100%;
+}
+
+.contribution-card {
+  animation: pageIn 520ms ease both;
+  background: #ffffff;
+  border: 1px solid rgba(13, 38, 56, 0.06);
+  border-radius: 28px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+  padding: 18px 14px 20px;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .locked-hero {
-  text-align: center;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.66)),
+    url("/pagina-03/emissaria04.jpg") center / cover;
+  border-radius: 22px;
+  color: #ffffff;
+  min-height: 360px;
+  overflow: hidden;
+  padding: 22px 16px;
+  position: relative;
+  text-align: left;
+}
+
+.locked-hero::after {
+  animation: shine 3.5s ease-in-out infinite;
+  background: linear-gradient(115deg, transparent 22%, rgba(255, 255, 255, 0.18), transparent 58%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  transform: translateX(-120%);
+}
+
+@keyframes shine {
+  0%,
+  45% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
 }
 
 .lock-mark {
   align-items: center;
-  background: rgba(4, 120, 76, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 999px;
   display: flex;
-  font-size: 30px;
-  height: 68px;
+  font-size: 24px;
+  height: 52px;
   justify-content: center;
-  margin: 0 auto 16px;
-  width: 68px;
+  margin-bottom: 86px;
+  width: 52px;
 }
 
-.locked-hero h1 {
-  font-size: clamp(30px, 8.6vw, 42px);
-  letter-spacing: -0.05em;
-  line-height: 0.96;
-  margin: 0 0 12px;
+.mini-alert {
+  color: #ffe6a9;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
   text-transform: uppercase;
 }
 
-.locked-hero p {
-  color: var(--muted);
+.locked-hero h1 {
+  color: #ffffff;
+  font-size: clamp(37px, 11vw, 54px);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  line-height: 0.88;
+  margin: 0 0 12px;
+  max-width: 350px;
+  text-transform: uppercase;
+}
+
+.locked-hero p:not(.mini-alert) {
+  color: rgba(255, 255, 255, 0.86);
   font-size: 15px;
-  line-height: 1.42;
-  margin: 0 0 22px;
+  font-weight: 600;
+  line-height: 1.34;
+  margin: 0;
+  max-width: 360px;
+}
+
+.locked-material {
+  align-items: center;
+  background: #f8fafc;
+  border: 1px solid #dbe5ee;
+  border-radius: 20px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 84px 1fr;
+  margin: 16px 0 20px;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.locked-material img {
+  aspect-ratio: 9 / 16;
+  border-radius: 14px;
+  display: block;
+  object-fit: contain;
+  width: 84px;
+}
+
+.lock-overlay {
+  display: grid;
+  gap: 3px;
+}
+
+.lock-overlay span {
+  font-size: 25px;
+}
+
+.lock-overlay strong {
+  color: var(--ink);
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.lock-overlay small {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.impact-title {
+  font-size: clamp(27px, 8vw, 38px);
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+  margin-top: 4px;
+}
+
+.cause-copy {
+  background: #fffaf0;
+  border-left: 4px solid var(--gold);
+  border-radius: 14px;
+  color: #31475b;
+  font-weight: 650;
+  padding: 13px 14px;
+}
+
+.amounts {
+  margin-top: 18px;
+}
+
+.amounts button {
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.amounts button:hover,
+.amounts button.selected {
+  box-shadow: 0 12px 22px rgba(4, 120, 76, 0.16);
+  transform: translateY(-2px);
 }
 
 .locked-download {

@@ -38,6 +38,7 @@ const documentInput = leadForm.querySelector('input[name="document"]');
 const phoneInput = leadForm.querySelector('input[name="phone"]');
 const supportPopup = document.querySelector("#support-popup");
 const popupClose = document.querySelector("#popup-close");
+const popupAction = document.querySelector("#popup-action");
 
 function setProgress(percent) {
   const value = Math.max(0, Math.min(100, percent));
@@ -96,6 +97,11 @@ phoneInput.addEventListener("input", () => {
 
 popupClose.addEventListener("click", () => {
   supportPopup.classList.add("hidden");
+});
+
+popupAction.addEventListener("click", () => {
+  supportPopup.classList.add("hidden");
+  amounts.scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
 leadForm.addEventListener("submit", (event) => {

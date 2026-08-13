@@ -115,7 +115,7 @@
                 <div class="amounts" id="amounts">
                   <button type="button" data-amount="10">R$10</button>
                   <button type="button" data-amount="20">R$20</button>
-                  <button type="button" data-amount="30">R$30</button>
+                  <button type="button" data-amount="30" class="recommended"><span>Mais escolhido</span>R$30</button>
                   <button type="button" data-amount="50">R$50</button>
                   <button type="button" data-amount="100">R$100</button>
                   <button type="button" data-amount="150">R$150</button>
@@ -143,13 +143,21 @@
                 <p>Obrigado por caminhar com fé por seu filho.</p>
               </div>
 
-              <div class="support-popup hidden" id="support-popup" role="dialog" aria-modal="false">
-                <button class="popup-close" type="button" id="popup-close" aria-label="Fechar aviso">×</button>
-                <strong>Quer liberar agora?</strong>
-                <p>
-                  Mães que contribuem com qualquer valor para manter o projeto recebem a liberação do material
-                  imediatamente após a confirmação do Pix.
-                </p>
+              <div class="support-modal hidden" id="support-popup" role="dialog" aria-modal="true">
+                <div class="support-popup">
+                  <button class="popup-close" type="button" id="popup-close" aria-label="Fechar aviso">×</button>
+                  <span class="popup-kicker">Liberação imediata</span>
+                  <strong>Quer receber seu material agora?</strong>
+                  <p>
+                    A barra pode levar alguns minutos. Mas mães que contribuem com qualquer valor para manter o projeto
+                    têm a liberação feita imediatamente após a confirmação do Pix.
+                  </p>
+                  <div class="popup-highlight">
+                    <span>Valor mais escolhido</span>
+                    <strong>R$30</strong>
+                  </div>
+                  <button class="popup-action" type="button" id="popup-action">Contribuir agora</button>
+                </div>
               </div>
             </div>
           </section>

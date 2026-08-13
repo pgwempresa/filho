@@ -8,29 +8,38 @@
     <link rel="stylesheet" href="/contribuir/style.css" />
   </head>
   <body>
-    <main class="checkout-view">
-      <div class="checkout-shell">
-        <section class="form-card">
+    <main class="contribution-page">
+      <div class="contribution-shell">
+        <section class="contribution-card">
           <div class="locked-hero">
-            <span class="lock-mark">🔒</span>
-            <h1>Seu material gratuito está reservado</h1>
+            <span class="lock-mark">✦</span>
+            <p class="mini-alert">Você saiu antes da liberação final</p>
+            <h1>Seu material está reservado</h1>
             <p>
-              Obrigado por escolher caminhar esses 21 dias em oração pelo seu filho. Antes de liberar o download,
-              pedimos uma contribuição simbólica para manter esse projeto vivo e alcançar outras mães que estão
-              chorando em silêncio.
+              Você escolheu receber os 21 dias de oração pelo seu filho. Agora, se essa mensagem tocou seu coração,
+              ajude a manter essa missão chegando em mães que estão chorando sozinhas e sem direção.
             </p>
           </div>
 
-          <p class="impact-title">Ajude essa missão continuar</p>
+          <div class="locked-material">
+            <img src="/pagina-02/cena-04.webp" alt="Capa do material Traga Seu Filho de Volta" />
+            <div class="lock-overlay">
+              <span>🔒</span>
+              <strong>Download bloqueado</strong>
+              <small>liberado após contribuição confirmada</small>
+            </div>
+          </div>
+
+          <p class="impact-title">Uma mãe pode estar orando por uma resposta agora</p>
           <p class="cause-copy">
-            Não é sobre comprar uma oração. É sobre sustentar uma mensagem que pode chegar hoje na mãe que está
-            desesperada, cansada e sem saber mais como lutar pelo filho.
+            Sua contribuição ajuda esse projeto a continuar entregando orientação, fé e esperança para famílias que
+            precisam lutar pelos filhos antes que seja tarde demais.
           </p>
 
           <div class="amounts" id="amounts">
             <button type="button" data-amount="10">R$10</button>
             <button type="button" data-amount="20">R$20</button>
-            <button type="button" data-amount="30">R$30</button>
+            <button type="button" data-amount="30" class="recommended"><span>Mais escolhido</span>R$30</button>
             <button type="button" data-amount="50">R$50</button>
             <button type="button" data-amount="100">R$100</button>
             <button type="button" data-amount="150">R$150</button>
