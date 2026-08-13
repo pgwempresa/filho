@@ -379,9 +379,9 @@ h2 {
 }
 
 .impact-track {
-  animation: impactSlide 12s infinite;
+  animation: impactSlide 16s infinite;
   display: flex;
-  width: 300%;
+  width: 400%;
 }
 
 .impact-track img {
@@ -389,23 +389,28 @@ h2 {
   display: block;
   height: auto;
   object-fit: contain;
-  width: calc(100% / 3);
+  width: 25%;
 }
 
 @keyframes impactSlide {
   0%,
-  26% {
+  20% {
     transform: translateX(0);
   }
 
-  34%,
-  60% {
-    transform: translateX(-33.3333%);
+  25%,
+  45% {
+    transform: translateX(-25%);
   }
 
-  68%,
-  94% {
-    transform: translateX(-66.6666%);
+  50%,
+  70% {
+    transform: translateX(-50%);
+  }
+
+  75%,
+  95% {
+    transform: translateX(-75%);
   }
 
   100% {
