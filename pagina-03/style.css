@@ -79,6 +79,28 @@ h2 {
   gap: 14px;
 }
 
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  animation: stepIn 380ms ease both;
+  display: grid;
+  gap: 14px;
+}
+
+@keyframes stepIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 label {
   color: rgba(255, 255, 255, 0.82);
   display: grid;
@@ -145,14 +167,28 @@ button {
   display: flex;
   font-size: 13px;
   font-weight: 900;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 9px;
 }
 
 .cause {
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  margin-top: 32px;
-  padding-top: 22px;
+  margin-top: 22px;
+}
+
+.impact-title {
+  color: var(--cream);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 9vw, 40px);
+  font-weight: 950;
+  line-height: 0.98;
+  margin: 24px 0 16px;
+  text-transform: uppercase;
+}
+
+.wait-photo {
+  border-color: rgba(202, 164, 90, 0.38);
+  border-radius: 26px;
+  margin: 0 0 18px;
 }
 
 .cause-title {

@@ -9,25 +9,34 @@
   <body>
     <main class="page">
       <section class="panel" id="lead-panel">
-        <figure class="checkout-photo">
-          <img src="/pagina-03/checkout.webp" alt="Mães reunidas em um momento de acolhimento" />
-        </figure>
-        <p class="eyebrow">Último passo</p>
-        <h1>Para liberar seu material gratuito, preencha seus dados.</h1>
+        <p class="eyebrow">Liberação gratuita</p>
         <form id="lead-form" class="form">
-          <label>
-            Nome
-            <input name="name" autocomplete="name" required placeholder="Seu nome" />
-          </label>
-          <label>
-            Email
-            <input name="email" type="email" autocomplete="email" required placeholder="seuemail@email.com" />
-          </label>
-          <label>
-            Telefone
-            <input name="phone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000" />
-          </label>
-          <button type="submit">Liberar meu material</button>
+          <div class="form-step active" data-step="name">
+            <h1>Como podemos chamar você?</h1>
+            <label>
+              Nome
+              <input name="name" autocomplete="name" required placeholder="Seu nome" />
+            </label>
+            <button type="button" data-next="email">Continuar</button>
+          </div>
+
+          <div class="form-step" data-step="email">
+            <h1>Para onde vamos enviar seu material?</h1>
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" required placeholder="seuemail@email.com" />
+            </label>
+            <button type="button" data-next="phone">Continuar</button>
+          </div>
+
+          <div class="form-step" data-step="phone">
+            <h1>Qual seu telefone?</h1>
+            <label>
+              Telefone
+              <input name="phone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000" />
+            </label>
+            <button type="submit">Liberar meu material</button>
+          </div>
         </form>
       </section>
 
@@ -40,12 +49,19 @@
         </div>
         <div class="progress-meta">
           <span id="progress-label">0%</span>
-          <span id="time-left">5:00</span>
         </div>
 
+        <p class="impact-title">Ajude a gente a impactar mais mães</p>
+
+        <figure class="checkout-photo wait-photo">
+          <img src="/pagina-03/checkout.webp" alt="Mães reunidas em um momento de acolhimento" />
+        </figure>
+
         <div class="cause">
-          <p class="cause-title">Ajude nossa causa</p>
-          <p class="cause-copy">Doe um valor para manter esse projeto alcançando outras mães.</p>
+          <p class="cause-copy">
+            Estamos te entregando esse material gratuitamente. Se essa mensagem tocou seu coração,
+            nos ajude a manter esse projeto vivo e chegando a outras mães que estão lutando pelos filhos.
+          </p>
           <div class="amounts" id="amounts">
             <button type="button" data-amount="10">R$10</button>
             <button type="button" data-amount="20">R$20</button>

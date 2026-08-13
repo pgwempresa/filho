@@ -50,7 +50,7 @@ export default async function handler(request, response) {
       },
       body: JSON.stringify({
         amount: Number(amount),
-        description: "Doacao para manter o projeto",
+        description: "Protocolo 21 Dias",
         external_id: `filho-${Date.now()}`,
         payer: {
           name: lead.name,
