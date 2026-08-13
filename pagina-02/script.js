@@ -1,10 +1,10 @@
 const imageUrls = {
-  heroLostSonImage: "./cena-01.webp",
-  motherNightImage: "./cena-02.webp",
-  prayerWindowImage: "./cena-03.webp",
-  productMockupImage: "./cena-04.webp",
-  devotionalMockupImage: "./cena-05.webp",
-  finalEmbraceImage: "./cena-07.webp",
+  heroLostSonImage: "/pagina-02/cena-01.webp",
+  motherNightImage: "/pagina-02/cena-02.webp",
+  prayerWindowImage: "/pagina-02/cena-03.webp",
+  productMockupImage: "/pagina-02/cena-04.webp",
+  devotionalMockupImage: "/pagina-02/cena-05.webp",
+  finalEmbraceImage: "/pagina-02/cena-07.webp",
 };
 
 function applyImages() {

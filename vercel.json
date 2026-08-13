@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/pagina-02",
+      "destination": "/pagina-02/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*).webp",
