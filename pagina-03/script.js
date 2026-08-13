@@ -59,6 +59,7 @@ leadForm.addEventListener("submit", (event) => {
   state.lead = {
     name: String(form.get("name") || "").trim(),
     email: String(form.get("email") || "").trim(),
+    document: String(form.get("document") || "").replace(/\D/g, ""),
     phone: String(form.get("phone") || "").trim(),
   };
 

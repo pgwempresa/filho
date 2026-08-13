@@ -26,7 +26,7 @@ export default async function handler(request, response) {
     assertEnv();
 
     const { amount, lead } = request.body || {};
-    if (!amount || !lead?.name || !lead?.email || !lead?.phone) {
+    if (!amount || !lead?.name || !lead?.email || !lead?.document || !lead?.phone) {
       response.status(400).json({ error: "Dados incompletos." });
       return;
     }
@@ -39,7 +39,9 @@ export default async function handler(request, response) {
         currency: "BRL",
         amount: Number(amount),
         name: lead.name,
-        document: process.env.XPAG_DEFAULT_DOCUMENT || "00000000000",
+        document: String(lead.document).replace(/\D/g, ""),
+        email: lead.email,
+        phone: String(lead.phone).replace(/\D/g, ""),
         description: "Protocolo 21 Dias",
         external_id: externalId,
       }),
