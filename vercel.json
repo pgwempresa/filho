@@ -5,6 +5,10 @@
     {
       "source": "/pagina-02",
       "destination": "/pagina-02/index.html"
+    },
+    {
+      "source": "/pagina-03",
+      "destination": "/pagina-03/index.html"
     }
   ],
   "headers": [

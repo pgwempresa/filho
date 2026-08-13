@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Liberação do Material</title>
+    <link rel="stylesheet" href="/pagina-03/style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="panel" id="lead-panel">
+        <p class="eyebrow">Último passo</p>
+        <h1>Para liberar seu material gratuito, preencha seus dados.</h1>
+        <form id="lead-form" class="form">
+          <label>
+            Nome
+            <input name="name" autocomplete="name" required placeholder="Seu nome" />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required placeholder="seuemail@email.com" />
+          </label>
+          <label>
+            Telefone
+            <input name="phone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000" />
+          </label>
+          <button type="submit">Liberar meu material</button>
+        </form>
+      </section>
+
+      <section class="panel hidden" id="wait-panel" aria-live="polite">
+        <p class="eyebrow">Aguarde</p>
+        <h2>Aguarde a liberação do seu material gratuito</h2>
+
+        <div class="progress-shell">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="progress-meta">
+          <span id="progress-label">0%</span>
+          <span id="time-left">5:00</span>
+        </div>
+
+        <div class="cause">
+          <p class="cause-title">Ajude nossa causa</p>
+          <p class="cause-copy">Doe um valor para manter esse projeto alcançando outras mães.</p>
+          <div class="amounts" id="amounts">
+            <button type="button" data-amount="10">R$10</button>
+            <button type="button" data-amount="20">R$20</button>
+            <button type="button" data-amount="30">R$30</button>
+            <button type="button" data-amount="50">R$50</button>
+            <button type="button" data-amount="100">R$100</button>
+            <button type="button" data-amount="150">R$150</button>
+          </div>
+
+          <div class="pix-box hidden" id="pix-box">
+            <p class="pix-status" id="pix-status">Gerando Pix...</p>
+            <img id="pix-qr" alt="QR Code Pix" class="hidden" />
+            <textarea id="pix-code" readonly></textarea>
+            <button type="button" id="copy-pix">Copiar código Pix</button>
+          </div>
+        </div>
+
+        <div class="complete hidden" id="complete">
+          <h3>Material liberado.</h3>
+          <p>Obrigado por caminhar com fé por seu filho.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="/pagina-03/script.js"></script>
+  </body>
+</html>

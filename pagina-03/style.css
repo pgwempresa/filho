@@ -1,0 +1,233 @@
+:root {
+  --ink: #101711;
+  --forest: #10281f;
+  --gold: #caa45a;
+  --cream: #fff6e6;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.78)),
+    radial-gradient(circle at 50% 0%, rgba(202, 164, 90, 0.25), transparent 34%),
+    #07110d;
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page {
+  align-items: center;
+  display: flex;
+  min-height: 100svh;
+  padding: 22px 16px;
+}
+
+.panel {
+  margin: 0 auto;
+  max-width: 430px;
+  width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 11vw, 48px);
+  line-height: 0.96;
+  margin: 0 0 26px;
+  text-transform: uppercase;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  color: rgba(255, 255, 255, 0.82);
+  display: grid;
+  font-size: 13px;
+  font-weight: 900;
+  gap: 7px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
+  color: #ffffff;
+  font-size: 18px;
+  outline: 0;
+  padding: 17px 16px;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form button,
+#copy-pix {
+  background: linear-gradient(180deg, #e3c06f, #b9872d);
+  border-radius: 999px;
+  color: #11160d;
+  font-size: 15px;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+  padding: 18px 20px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.progress-shell {
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  height: 16px;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, #caa45a, #fff0b8);
+  border-radius: inherit;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 650ms linear;
+}
+
+.progress-meta {
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  font-size: 13px;
+  font-weight: 900;
+  justify-content: space-between;
+  margin-top: 9px;
+}
+
+.cause {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  margin-top: 32px;
+  padding-top: 22px;
+}
+
+.cause-title {
+  color: #fff6e6;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.cause-copy {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 15px;
+  line-height: 1.35;
+  margin: 8px 0 16px;
+}
+
+.amounts {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.amounts button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 950;
+  padding: 15px 8px;
+}
+
+.amounts button.selected {
+  background: rgba(202, 164, 90, 0.22);
+  border-color: var(--gold);
+  color: #ffe8ad;
+}
+
+.pix-box {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.pix-status {
+  color: #ffe8ad;
+  font-size: 14px;
+  font-weight: 900;
+  margin: 0;
+}
+
+#pix-qr {
+  background: #ffffff;
+  border-radius: 14px;
+  margin: 0 auto;
+  max-width: 220px;
+  padding: 10px;
+  width: 70%;
+}
+
+textarea {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  color: #ffffff;
+  font-size: 12px;
+  min-height: 92px;
+  padding: 12px;
+  resize: none;
+}
+
+.complete {
+  color: #fff6e6;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.complete h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.complete p {
+  color: rgba(255, 255, 255, 0.74);
+  margin: 8px 0 0;
+}
