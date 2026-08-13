@@ -9,10 +9,9 @@ const state = {
   checkTimer: null,
 };
 
-const leadPanel = document.querySelector("#lead-panel");
-const waitPanel = document.querySelector("#wait-panel");
+const checkoutView = document.querySelector("#checkout-view");
+const releaseView = document.querySelector("#release-view");
 const leadForm = document.querySelector("#lead-form");
-const formSteps = Array.from(document.querySelectorAll(".form-step"));
 const progressBar = document.querySelector("#progress-bar");
 const progressLabel = document.querySelector("#progress-label");
 const amounts = document.querySelector("#amounts");
@@ -52,31 +51,9 @@ function startProgress() {
   }, 1000);
 }
 
-function showStep(stepName) {
-  formSteps.forEach((step) => {
-    step.classList.toggle("active", step.dataset.step === stepName);
-  });
-
-  const input = document.querySelector(`.form-step[data-step="${stepName}"] input`);
-  input?.focus();
-}
-
-leadForm.addEventListener("click", (event) => {
-  const button = event.target.closest("button[data-next]");
-  if (!button) return;
-
-  const currentStep = button.closest(".form-step");
-  const input = currentStep.querySelector("input");
-  if (!input.reportValidity()) return;
-
-  showStep(button.dataset.next);
-});
-
 leadForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const currentStep = leadForm.querySelector(".form-step.active");
-  const input = currentStep.querySelector("input");
-  if (!input.reportValidity()) return;
+  if (!leadForm.reportValidity()) return;
 
   const form = new FormData(leadForm);
   state.lead = {
@@ -85,8 +62,9 @@ leadForm.addEventListener("submit", (event) => {
     phone: String(form.get("phone") || "").trim(),
   };
 
-  leadPanel.classList.add("hidden");
-  waitPanel.classList.remove("hidden");
+  checkoutView.classList.add("hidden");
+  releaseView.classList.remove("hidden");
+  window.scrollTo({ top: 0, behavior: "instant" });
   startProgress();
 });
 

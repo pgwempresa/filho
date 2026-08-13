@@ -3,85 +3,112 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Liberação do Material</title>
+    <title>Resgate Seu Material Gratuito</title>
     <link rel="stylesheet" href="/pagina-03/style.css" />
   </head>
   <body>
     <main class="page">
-      <section class="panel" id="lead-panel">
-        <p class="eyebrow">Liberação gratuita</p>
-        <form id="lead-form" class="form">
-          <div class="form-step active" data-step="name">
-            <h1>Como podemos chamar você?</h1>
-            <label>
-              Nome
-              <input name="name" autocomplete="name" required placeholder="Seu nome" />
-            </label>
-            <button type="button" data-next="email">Continuar</button>
-          </div>
+      <section class="checkout-view" id="checkout-view">
+        <div class="checkout-shell">
+          <div class="secure-pill">🔒 Resgate seguro</div>
 
-          <div class="form-step" data-step="email">
-            <h1>Para onde vamos enviar seu material?</h1>
-            <label>
-              Email
-              <input name="email" type="email" autocomplete="email" required placeholder="seuemail@email.com" />
-            </label>
-            <button type="button" data-next="phone">Continuar</button>
-          </div>
+          <section class="order-card">
+            <div class="card-title">Resumo do pedido</div>
+            <div class="product-row">
+              <img
+                class="product-cover"
+                src="/pagina-02/cena-04.webp"
+                alt="Capa do material Traga Seu Filho de Volta"
+              />
+              <div>
+                <h1>Traga Seu Filho de Volta</h1>
+                <p>21 dias de oração pelo seu filho</p>
+              </div>
+            </div>
+            <div class="total-row">
+              <span>Total</span>
+              <strong>R$ 0,00</strong>
+            </div>
+          </section>
 
-          <div class="form-step" data-step="phone">
-            <h1>Qual seu telefone?</h1>
-            <label>
-              Telefone
-              <input name="phone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000" />
-            </label>
-            <button type="submit">Liberar meu material</button>
-          </div>
-        </form>
+          <section class="form-card">
+            <div class="card-title">Dados pessoais</div>
+            <p class="form-intro">
+              Preencha seus dados para reservar o acesso gratuito ao material.
+            </p>
+
+            <form id="lead-form" class="lead-form">
+              <label>
+                Nome completo
+                <input name="name" autocomplete="name" required placeholder="Digite seu nome completo" />
+              </label>
+
+              <label>
+                E-mail
+                <input name="email" type="email" autocomplete="email" required placeholder="seuemail@email.com" />
+              </label>
+
+              <label>
+                Celular/WhatsApp
+                <input name="phone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000" />
+              </label>
+
+              <button class="rescue-button" type="submit">Resgatar material gratuito</button>
+            </form>
+          </section>
+
+          <p class="tiny-note">
+            Seu material é gratuito. A próxima tela apenas mostra a liberação e uma forma opcional de apoiar o projeto.
+          </p>
+        </div>
       </section>
 
-      <section class="panel hidden" id="wait-panel" aria-live="polite">
-        <p class="eyebrow">Aguarde</p>
-        <h2>Aguarde a liberação do seu material gratuito</h2>
+      <section class="release-view hidden" id="release-view" aria-live="polite">
+        <div class="release-shell">
+          <p class="eyebrow">Liberação em andamento</p>
+          <h2>Aguarde a liberação do seu material gratuito</h2>
 
-        <div class="progress-shell">
-          <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        <div class="progress-meta">
-          <span id="progress-label">0%</span>
-        </div>
-
-        <p class="impact-title">Ajude a gente a impactar mais mães</p>
-
-        <figure class="checkout-photo wait-photo">
-          <img src="/pagina-03/checkout.webp" alt="Mães reunidas em um momento de acolhimento" />
-        </figure>
-
-        <div class="cause">
-          <p class="cause-copy">
-            Estamos te entregando esse material gratuitamente. Se essa mensagem tocou seu coração,
-            nos ajude a manter esse projeto vivo e chegando a outras mães que estão lutando pelos filhos.
-          </p>
-          <div class="amounts" id="amounts">
-            <button type="button" data-amount="10">R$10</button>
-            <button type="button" data-amount="20">R$20</button>
-            <button type="button" data-amount="30">R$30</button>
-            <button type="button" data-amount="50">R$50</button>
-            <button type="button" data-amount="100">R$100</button>
-            <button type="button" data-amount="150">R$150</button>
+          <div class="progress-shell">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+          <div class="progress-meta">
+            <span id="progress-label">0%</span>
           </div>
 
-          <div class="pix-box hidden" id="pix-box">
-            <p class="pix-status" id="pix-status">Gerando Pix...</p>
-            <img id="pix-qr" alt="QR Code Pix" class="hidden" />
-            <textarea id="pix-code" readonly></textarea>
-            <button type="button" id="copy-pix">Copiar código Pix</button>
-          </div>
-        </div>
+          <p class="impact-title">Ajude a gente a impactar mais mães</p>
 
-        <div class="complete hidden" id="complete">
-          <h3>Material liberado.</h3>
-          <p>Obrigado por caminhar com fé por seu filho.</p>
+          <figure class="checkout-photo wait-photo">
+            <img src="/pagina-03/checkout.webp" alt="Mães reunidas em um momento de acolhimento" />
+          </figure>
+
+          <div class="cause">
+            <p class="cause-copy">
+              Estamos te entregando esse material gratuitamente porque acreditamos que nenhuma mãe deve lutar sozinha.
+              Se essa mensagem tocou seu coração, escolha um valor simbólico para ajudar esse projeto a continuar
+              alcançando outras mães que também estão clamando pelos filhos.
+            </p>
+
+            <div class="amounts" id="amounts">
+              <button type="button" data-amount="10">R$10</button>
+              <button type="button" data-amount="20">R$20</button>
+              <button type="button" data-amount="30">R$30</button>
+              <button type="button" data-amount="50">R$50</button>
+              <button type="button" data-amount="100">R$100</button>
+              <button type="button" data-amount="150">R$150</button>
+            </div>
+
+            <div class="pix-box hidden" id="pix-box">
+              <p class="pix-status" id="pix-status">Gerando Pix...</p>
+              <img id="pix-qr" alt="QR Code Pix" class="hidden" />
+              <textarea id="pix-code" readonly></textarea>
+              <button type="button" id="copy-pix">Copiar código Pix</button>
+            </div>
+          </div>
+
+          <div class="complete hidden" id="complete">
+            <h3>Material liberado.</h3>
+            <p>Obrigado por caminhar com fé por seu filho.</p>
+          </div>
         </div>
       </section>
     </main>

@@ -7,23 +7,13 @@ function assertEnv() {
   }
 }
 
-async function getToken() {
-  const response = await fetch(`${process.env.XPAG_BASE_URL}/oauth/token`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      grant_type: "client_credentials",
-      client_id: process.env.XPAG_CLIENT_ID,
-      client_secret: process.env.XPAG_CLIENT_SECRET,
-    }),
-  });
-
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new Error(data.message || data.error || "Falha ao autenticar na XPag.");
-  }
-
-  return data.access_token || data.token;
+function xpagHeaders() {
+  return {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    "X-Client-Id": process.env.XPAG_CLIENT_ID,
+    "X-Client-Secret": process.env.XPAG_CLIENT_SECRET,
+  };
 }
 
 export default async function handler(request, response) {
@@ -41,22 +31,17 @@ export default async function handler(request, response) {
       return;
     }
 
-    const token = await getToken();
-    const pixResponse = await fetch(`${process.env.XPAG_BASE_URL}/pix/cash-in`, {
+    const externalId = `protocolo-21-dias-${Date.now()}`;
+    const pixResponse = await fetch(`${process.env.XPAG_BASE_URL}/cashin`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
+      headers: xpagHeaders(),
       body: JSON.stringify({
+        currency: "BRL",
         amount: Number(amount),
+        name: lead.name,
+        document: process.env.XPAG_DEFAULT_DOCUMENT || "00000000000",
         description: "Protocolo 21 Dias",
-        external_id: `filho-${Date.now()}`,
-        payer: {
-          name: lead.name,
-          email: lead.email,
-          phone: lead.phone,
-        },
+        external_id: externalId,
       }),
     });
 
@@ -66,9 +51,9 @@ export default async function handler(request, response) {
     }
 
     response.status(200).json({
-      id: data.id || data.transaction_id || data.txid || data.uuid,
-      pixCode: data.pix_code || data.copy_paste || data.qr_code || data.emv,
-      qrCodeImage: data.qr_code_image || data.qrcode_image || data.qr_code_base64,
+      id: data.request_number || data.transaction_id || data.id || data.txid || externalId,
+      pixCode: data.copyPaste || data.pix_code || data.copy_paste || data.qr_code || data.code,
+      qrCodeImage: data.qr_img || data.qr_url || data.qr_code_image || data.qrcode_image || data.qr_code_base64,
       raw: data,
     });
   } catch (error) {

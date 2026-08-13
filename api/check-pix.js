@@ -1,19 +1,11 @@
 const paidStatuses = new Set(["paid", "approved", "completed", "confirmed", "settled"]);
 
-async function getToken() {
-  const response = await fetch(`${process.env.XPAG_BASE_URL}/oauth/token`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      grant_type: "client_credentials",
-      client_id: process.env.XPAG_CLIENT_ID,
-      client_secret: process.env.XPAG_CLIENT_SECRET,
-    }),
-  });
-
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.message || data.error || "Falha ao autenticar.");
-  return data.access_token || data.token;
+function xpagHeaders() {
+  return {
+    Accept: "application/json",
+    "X-Client-Id": process.env.XPAG_CLIENT_ID,
+    "X-Client-Secret": process.env.XPAG_CLIENT_SECRET,
+  };
 }
 
 export default async function handler(request, response) {
@@ -24,10 +16,11 @@ export default async function handler(request, response) {
       return;
     }
 
-    const token = await getToken();
-    const statusResponse = await fetch(`${process.env.XPAG_BASE_URL}/pix/cash-in/${encodeURIComponent(id)}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const queryKey = String(id).startsWith("protocolo-21-dias-") ? "external_id" : "request_number";
+    const statusResponse = await fetch(
+      `${process.env.XPAG_BASE_URL}/consult-transaction?${queryKey}=${encodeURIComponent(id)}`,
+      { headers: xpagHeaders() },
+    );
 
     const data = await statusResponse.json().catch(() => ({}));
     if (!statusResponse.ok) {
