@@ -179,16 +179,25 @@ a {
   border-radius: 999px;
   bottom: 22px;
   color: #ffffff;
-  display: flex;
-  font-size: 26px;
+  display: inline-flex;
+  gap: 8px;
+  font-size: 12px;
   font-weight: 900;
-  height: 44px;
+  min-height: 42px;
   justify-content: center;
   left: 50%;
+  letter-spacing: 0.08em;
+  padding: 0 14px;
   position: absolute;
+  text-transform: uppercase;
   transform: translateX(-50%);
-  width: 44px;
+  white-space: nowrap;
   z-index: 3;
+}
+
+.scroll-cue b {
+  font-size: 20px;
+  line-height: 1;
 }
 
 .dark-cue {

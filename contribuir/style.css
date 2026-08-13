@@ -31,7 +31,7 @@ body {
 }
 
 .dark-hero {
-  min-height: 100svh;
+  min-height: 62svh;
   overflow: hidden;
   position: relative;
 }
@@ -54,7 +54,7 @@ body {
 }
 
 .hero-copy {
-  bottom: 46px;
+  bottom: 22px;
   left: 0;
   padding: 0 20px;
   position: absolute;
@@ -73,10 +73,10 @@ body {
 
 h1 {
   color: #ffffff;
-  font-size: clamp(48px, 15vw, 72px);
+  font-size: clamp(35px, 10.5vw, 50px);
   font-weight: 900;
-  letter-spacing: -0.08em;
-  line-height: 0.84;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
   margin: 0 0 14px;
   max-width: 330px;
   text-transform: uppercase;
@@ -97,7 +97,7 @@ h1 {
     radial-gradient(circle at 50% 0%, rgba(202, 164, 90, 0.18), transparent 34%),
     #050806;
   margin-top: -1px;
-  padding: 20px 16px 34px;
+  padding: 18px 16px 34px;
 }
 
 .locked-material {
@@ -155,11 +155,11 @@ h1 {
 
 h2 {
   color: #ffffff;
-  font-size: clamp(30px, 9.2vw, 42px);
+  font-size: clamp(25px, 7.4vw, 34px);
   font-weight: 900;
-  letter-spacing: -0.08em;
-  line-height: 0.92;
-  margin: 0 0 14px;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  margin: 0 0 12px;
   text-transform: uppercase;
 }
 
@@ -206,9 +206,10 @@ h2 {
 }
 
 .amounts button.recommended {
-  border-color: var(--gold);
-  box-shadow: 0 0 0 1px rgba(202, 164, 90, 0.32), 0 15px 28px rgba(0, 0, 0, 0.22);
-  color: #ffe6a9;
+  background: #fff6e6;
+  border-color: #f4d27e;
+  box-shadow: 0 0 0 2px rgba(202, 164, 90, 0.55), 0 15px 28px rgba(0, 0, 0, 0.24);
+  color: #0d2638;
   padding-top: 24px;
 }
 
