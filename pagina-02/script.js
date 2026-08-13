@@ -2,7 +2,7 @@ const imageUrls = {
   heroLostSonImage: "/pagina-02/cena-01.webp",
   motherNightImage: "/pagina-02/cena-02.webp",
   prayerWindowImage: "/pagina-02/cena-03.webp",
-  productMockupImage: "/pagina-02/cena-04.webp",
+  productMockupImage: "/pagina-02/emissaria-section.jpg",
   devotionalMockupImage: "/pagina-02/cena-05.webp",
   finalEmbraceImage: "/pagina-02/cena-07.webp",
 };

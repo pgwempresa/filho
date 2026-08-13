@@ -491,9 +491,33 @@ a {
 }
 
 .decision {
-  color: var(--gold);
+  color: var(--cream);
   font-size: 31px;
   margin: 24px 0;
+}
+
+.old-price {
+  color: #070707;
+  display: inline-block;
+  position: relative;
+  text-shadow: none;
+}
+
+.old-price::after {
+  background: #d50000;
+  border-radius: 999px;
+  content: "";
+  height: 4px;
+  left: -4px;
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: rotate(-7deg);
+}
+
+.free-price {
+  color: #10b45f;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.55);
 }
 
 .today {

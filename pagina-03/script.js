@@ -1,5 +1,7 @@
 const WAIT_MS = 5 * 60 * 1000;
 const CHECK_INTERVAL_MS = 5000;
+const FAST_PROGRESS_MS = 15 * 1000;
+const FAST_PROGRESS_TARGET = 35;
 
 const state = {
   lead: null,
@@ -41,7 +43,11 @@ function startProgress() {
 
   state.progressTimer = setInterval(() => {
     const elapsed = Date.now() - state.startedAt;
-    const percent = (elapsed / WAIT_MS) * 100;
+    const percent =
+      elapsed <= FAST_PROGRESS_MS
+        ? (elapsed / FAST_PROGRESS_MS) * FAST_PROGRESS_TARGET
+        : FAST_PROGRESS_TARGET +
+          ((elapsed - FAST_PROGRESS_MS) / (WAIT_MS - FAST_PROGRESS_MS)) * (100 - FAST_PROGRESS_TARGET);
     setProgress(percent);
 
     if (elapsed >= WAIT_MS) {
