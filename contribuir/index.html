@@ -8,55 +8,56 @@
     <link rel="stylesheet" href="/contribuir/style.css" />
   </head>
   <body>
-    <main class="contribution-page">
-      <div class="contribution-shell">
-        <section class="contribution-card">
-          <div class="locked-hero">
-            <span class="lock-mark">✦</span>
-            <p class="mini-alert">Você saiu antes da liberação final</p>
-            <h1>Seu material está reservado</h1>
-            <p>
-              Você escolheu receber os 21 dias de oração pelo seu filho. Agora, se essa mensagem tocou seu coração,
-              ajude a manter essa missão chegando em mães que estão chorando sozinhas e sem direção.
-            </p>
-          </div>
-
-          <div class="locked-material">
-            <img src="/pagina-02/cena-04.webp" alt="Capa do material Traga Seu Filho de Volta" />
-            <div class="lock-overlay">
-              <span>🔒</span>
-              <strong>Download bloqueado</strong>
-              <small>liberado após contribuição confirmada</small>
-            </div>
-          </div>
-
-          <p class="impact-title">Uma mãe pode estar orando por uma resposta agora</p>
-          <p class="cause-copy">
-            Sua contribuição ajuda esse projeto a continuar entregando orientação, fé e esperança para famílias que
-            precisam lutar pelos filhos antes que seja tarde demais.
+    <main class="contribution-story">
+      <section class="dark-hero">
+        <img src="/pagina-03/emissaria04.jpg" alt="Mãe sendo acolhida pela Emissária" />
+        <div class="hero-vignette"></div>
+        <div class="hero-copy">
+          <p class="mini-alert reveal-line">Você saiu antes da liberação final</p>
+          <h1 class="reveal-line">Seu material está reservado</h1>
+          <p class="hero-text reveal-line">
+            O download ainda está bloqueado. Mas a sua escolha de continuar pode ajudar essa oração a chegar
+            em outra mãe que está perdendo as forças pelo filho.
           </p>
+        </div>
+      </section>
 
-          <div class="amounts" id="amounts">
-            <button type="button" data-amount="10">R$10</button>
-            <button type="button" data-amount="20">R$20</button>
-            <button type="button" data-amount="30" class="recommended"><span>Mais escolhido</span>R$30</button>
-            <button type="button" data-amount="50">R$50</button>
-            <button type="button" data-amount="100">R$100</button>
-            <button type="button" data-amount="150">R$150</button>
+      <section class="dark-offer">
+        <div class="locked-material reveal-line">
+          <img src="/pagina-02/cena-04.webp" alt="Capa do material Traga Seu Filho de Volta" />
+          <div class="lock-overlay">
+            <span>🔒</span>
+            <strong>Download bloqueado</strong>
+            <small>liberado após contribuição confirmada</small>
           </div>
+        </div>
 
-          <div class="pix-box hidden" id="pix-box">
-            <p class="treasury-name">Nome da Tesouraria: <strong>NFCT Tecnologia e Serviço</strong></p>
-            <p class="pix-status" id="pix-status">Gerando Pix...</p>
-            <img id="pix-qr" alt="QR Code Pix" class="hidden" />
-            <textarea id="pix-code" readonly></textarea>
-            <button type="button" id="copy-pix">Copiar código Pix</button>
-          </div>
+        <h2 class="reveal-line">Uma mãe pode estar orando por uma resposta agora</h2>
+        <p class="cause-copy reveal-line">
+          Não é sobre comprar uma oração. É sobre manter viva uma mensagem que pode chegar hoje na mãe que
+          está cansada, com medo e sem saber como lutar pelo filho.
+        </p>
 
-          <button class="locked-download" type="button">🔒 Baixar material</button>
-          <p class="locked-note">Download liberado após contribuição confirmada.</p>
-        </section>
-      </div>
+        <div class="amounts reveal-line" id="amounts">
+          <button type="button" data-amount="10">R$10</button>
+          <button type="button" data-amount="20">R$20</button>
+          <button type="button" data-amount="30" class="recommended"><span>Mais escolhido</span>R$30</button>
+          <button type="button" data-amount="50">R$50</button>
+          <button type="button" data-amount="100">R$100</button>
+          <button type="button" data-amount="150">R$150</button>
+        </div>
+
+        <div class="pix-box hidden" id="pix-box">
+          <p class="treasury-name">Nome da Tesouraria: <strong>NFCT Tecnologia e Serviço</strong></p>
+          <p class="pix-status" id="pix-status">Gerando Pix...</p>
+          <img id="pix-qr" alt="QR Code Pix" class="hidden" />
+          <textarea id="pix-code" readonly></textarea>
+          <button type="button" id="copy-pix">Copiar código Pix</button>
+        </div>
+
+        <button class="locked-download reveal-line" type="button">🔒 Baixar material</button>
+        <p class="locked-note reveal-line">Download liberado automaticamente após a contribuição confirmada.</p>
+      </section>
     </main>
 
     <script type="module" src="/contribuir/script.js"></script>

@@ -578,11 +578,11 @@ textarea {
   background: rgba(4, 120, 76, 0.08);
   border: 1px solid rgba(4, 120, 76, 0.18);
   border-radius: 18px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 2px;
   margin: 0 0 16px;
   padding: 14px;
-  text-align: left;
+  text-align: center;
 }
 
 .popup-highlight span {
@@ -594,10 +594,17 @@ textarea {
 
 .popup-highlight strong {
   color: var(--green);
-  font-size: 28px;
+  font-size: 30px;
   letter-spacing: -0.04em;
   line-height: 1;
   margin: 0;
+  text-transform: uppercase;
+}
+
+.popup-highlight small {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
   text-transform: uppercase;
 }
 

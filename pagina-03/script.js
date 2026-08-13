@@ -10,7 +10,7 @@ const WAIT_MS = 5 * 60 * 1000;
 const CHECK_INTERVAL_MS = 5000;
 const FAST_PROGRESS_MS = 15 * 1000;
 const FAST_PROGRESS_TARGET = 35;
-const POPUP_DELAY_MS = 90 * 1000;
+const POPUP_DELAY_MS = 60 * 1000;
 const THANK_YOU_URL = "/obrigado/";
 const BACK_OFFER_URL = "/contribuir/";
 
@@ -46,14 +46,23 @@ function setProgress(percent) {
   progressLabel.textContent = `${Math.round(value)}%`;
 }
 
-function finishProgress() {
+function stopProgress() {
   clearInterval(state.progressTimer);
   clearInterval(state.checkTimer);
   clearTimeout(state.popupTimer);
   setProgress(100);
+}
+
+function redirectToThanks() {
+  stopProgress();
   complete.classList.remove("hidden");
   if (pixStatus) pixStatus.textContent = "Pagamento confirmado. Material liberado.";
   window.location.href = THANK_YOU_URL;
+}
+
+function redirectToContribution() {
+  stopProgress();
+  window.location.href = BACK_OFFER_URL;
 }
 
 function startProgress() {
@@ -70,7 +79,7 @@ function startProgress() {
     setProgress(percent);
 
     if (elapsed >= WAIT_MS) {
-      finishProgress();
+      redirectToContribution();
     }
   }, 1000);
 
@@ -174,7 +183,7 @@ async function checkPixStatus() {
     const data = await checkPix(state.pixId);
 
     if (data.paid) {
-      finishProgress();
+      redirectToThanks();
     }
   } catch {
     // Mantem a barra rodando mesmo se uma checagem falhar.
