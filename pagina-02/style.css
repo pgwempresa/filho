@@ -190,46 +190,23 @@ a {
   padding: 0 14px;
   position: absolute;
   text-transform: uppercase;
-  transform: translateX(-50%);
+  transform: translate(-50%, 8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms ease, transform 320ms ease;
   white-space: nowrap;
   z-index: 3;
+}
+
+.scene.show-cue .scroll-cue {
+  opacity: 0.78;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
 }
 
 .scroll-cue b {
   font-size: 20px;
   line-height: 1;
-}
-
-.center-scroll-hint {
-  animation: centerHint 1500ms ease-in-out infinite;
-  background: rgba(0, 0, 0, 0.42);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 999px;
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: 950;
-  left: 50%;
-  letter-spacing: 0.11em;
-  padding: 12px 17px;
-  position: absolute;
-  text-transform: uppercase;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  white-space: nowrap;
-  z-index: 3;
-}
-
-@keyframes centerHint {
-  0%,
-  100% {
-    opacity: 0.72;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  50% {
-    opacity: 1;
-    transform: translate(-50%, calc(-50% + 7px)) scale(1.02);
-  }
 }
 
 .dark-cue {

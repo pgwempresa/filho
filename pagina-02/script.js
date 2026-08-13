@@ -56,6 +56,10 @@ function observeReveals() {
         const step = Number(element.dataset.step || 0.2);
         element.classList.toggle("in", progress >= step);
       });
+
+      const steps = Array.from(scene.querySelectorAll(".reveal-step")).map((element) => Number(element.dataset.step || 0.2));
+      const finalStep = steps.length ? Math.max(...steps) : 0.2;
+      scene.classList.toggle("show-cue", !scene.classList.contains("scene-material") && progress >= finalStep + 0.08);
     });
   }
 
