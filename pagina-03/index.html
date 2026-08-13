@@ -4,6 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Resgate Seu Material Gratuito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900;1000&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/pagina-03/style.css" />
   </head>
   <body>
@@ -49,12 +55,19 @@
             <form id="lead-form" class="lead-form">
               <label>
                 Nome completo
-                <input name="name" autocomplete="name" required placeholder="Digite seu nome completo" />
+                <input name="name" autocomplete="name" required maxlength="80" placeholder="Digite seu nome completo" />
               </label>
 
               <label>
                 E-mail
-                <input name="email" type="email" autocomplete="email" required placeholder="seuemail@email.com" />
+                <input
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  maxlength="120"
+                  placeholder="seuemail@email.com"
+                />
               </label>
 
               <label>
@@ -64,13 +77,24 @@
                   inputmode="numeric"
                   autocomplete="off"
                   required
+                  maxlength="18"
+                  minlength="11"
                   placeholder="Digite seu CPF ou CNPJ"
                 />
               </label>
 
               <label>
                 Celular/WhatsApp
-                <input name="phone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000" />
+                <input
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  required
+                  maxlength="15"
+                  minlength="14"
+                  placeholder="(00) 00000-0000"
+                />
               </label>
 
               <button class="rescue-button" type="submit">Resgatar material gratuito</button>
@@ -103,17 +127,20 @@
                   <button type="button" data-amount="150">R$150</button>
                 </div>
 
-                <div class="impact-gallery" aria-label="Fotos do projeto">
-                  <img src="/pagina-03/emissaria01.jpg" alt="Emissária acolhendo uma mãe" loading="lazy" />
-                  <img src="/pagina-03/emissaria02.jpg" alt="Momento de acolhimento com a Emissária" loading="lazy" />
-                  <img src="/pagina-03/emissaria04.jpg" alt="Mãe sendo acolhida em oração" loading="lazy" />
-                </div>
-
                 <div class="pix-box hidden" id="pix-box">
+                  <p class="treasury-name">Nome da Tesouraria: <strong>NFCT Tecnologia e Serviço</strong></p>
                   <p class="pix-status" id="pix-status">Gerando Pix...</p>
                   <img id="pix-qr" alt="QR Code Pix" class="hidden" />
                   <textarea id="pix-code" readonly></textarea>
                   <button type="button" id="copy-pix">Copiar código Pix</button>
+                </div>
+
+                <div class="impact-slider" aria-label="Fotos do projeto">
+                  <div class="impact-track" id="impact-track">
+                    <img src="/pagina-03/emissaria01.jpg" alt="Emissária acolhendo uma mãe" loading="lazy" />
+                    <img src="/pagina-03/emissaria02.jpg" alt="Momento de acolhimento com a Emissária" loading="lazy" />
+                    <img src="/pagina-03/emissaria04.jpg" alt="Mãe sendo acolhida em oração" loading="lazy" />
+                  </div>
                 </div>
               </div>
 

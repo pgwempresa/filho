@@ -22,6 +22,47 @@ const pixQr = document.querySelector("#pix-qr");
 const pixCode = document.querySelector("#pix-code");
 const copyPix = document.querySelector("#copy-pix");
 const complete = document.querySelector("#complete");
+const documentInput = leadForm.querySelector('input[name="document"]');
+const phoneInput = leadForm.querySelector('input[name="phone"]');
+
+function onlyDigits(value, limit) {
+  return value.replace(/\D/g, "").slice(0, limit);
+}
+
+function formatDocument(value) {
+  const digits = onlyDigits(value, 14);
+
+  if (digits.length <= 11) {
+    return digits
+      .replace(/^(\d{3})(\d)/, "$1.$2")
+      .replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3")
+      .replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
+  }
+
+  return digits
+    .replace(/^(\d{2})(\d)/, "$1.$2")
+    .replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
+    .replace(/^(\d{2})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3/$4")
+    .replace(/^(\d{2})\.(\d{3})\.(\d{3})\/(\d{4})(\d)/, "$1.$2.$3/$4-$5");
+}
+
+function formatPhone(value) {
+  const digits = onlyDigits(value, 11);
+
+  if (digits.length <= 10) {
+    return digits.replace(/^(\d{2})(\d)/, "($1) $2").replace(/(\d{4})(\d)/, "$1-$2");
+  }
+
+  return digits.replace(/^(\d{2})(\d)/, "($1) $2").replace(/(\d{5})(\d)/, "$1-$2");
+}
+
+documentInput.addEventListener("input", () => {
+  documentInput.value = formatDocument(documentInput.value);
+});
+
+phoneInput.addEventListener("input", () => {
+  phoneInput.value = formatPhone(phoneInput.value);
+});
 
 function setProgress(percent) {
   const value = Math.max(0, Math.min(100, percent));
@@ -65,7 +106,7 @@ leadForm.addEventListener("submit", (event) => {
     name: String(form.get("name") || "").trim(),
     email: String(form.get("email") || "").trim(),
     document: String(form.get("document") || "").replace(/\D/g, ""),
-    phone: String(form.get("phone") || "").trim(),
+    phone: String(form.get("phone") || "").replace(/\D/g, ""),
   };
 
   leadForm.classList.add("is-complete");

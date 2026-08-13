@@ -497,10 +497,10 @@ a {
 }
 
 .old-price {
-  color: #070707;
+  color: #ffffff;
   display: inline-block;
   position: relative;
-  text-shadow: none;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
 }
 
 .old-price::after {
