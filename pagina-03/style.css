@@ -38,6 +38,20 @@ body {
   width: 100%;
 }
 
+.checkout-photo {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 28px;
+  box-shadow: 0 22px 42px rgba(0, 0, 0, 0.34);
+  margin: 0 0 22px;
+  overflow: hidden;
+}
+
+.checkout-photo img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
 .hidden {
   display: none !important;
 }
