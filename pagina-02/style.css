@@ -196,11 +196,6 @@ a {
   border-color: rgba(255, 255, 255, 0.72);
 }
 
-.scene.has-copy .scroll-cue {
-  animation: none;
-  opacity: 0;
-}
-
 .scene-content {
   max-width: 430px;
   margin-left: auto;
