@@ -9,9 +9,8 @@ const state = {
   checkTimer: null,
 };
 
-const checkoutView = document.querySelector("#checkout-view");
-const releaseView = document.querySelector("#release-view");
 const leadForm = document.querySelector("#lead-form");
+const releaseBlock = document.querySelector("#release-block");
 const progressBar = document.querySelector("#progress-bar");
 const progressLabel = document.querySelector("#progress-label");
 const amounts = document.querySelector("#amounts");
@@ -63,9 +62,9 @@ leadForm.addEventListener("submit", (event) => {
     phone: String(form.get("phone") || "").trim(),
   };
 
-  checkoutView.classList.add("hidden");
-  releaseView.classList.remove("hidden");
-  window.scrollTo({ top: 0, behavior: "instant" });
+  leadForm.classList.add("is-complete");
+  releaseBlock.classList.remove("hidden");
+  releaseBlock.scrollIntoView({ behavior: "smooth", block: "start" });
   startProgress();
 });
 

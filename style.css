@@ -88,6 +88,23 @@ h1 span {
   width: 0;
 }
 
+.primary-cta {
+  background: linear-gradient(180deg, #e11b1b, #a80000);
+  border-radius: 999px;
+  box-shadow: 0 12px 24px rgba(214, 0, 0, 0.22);
+  color: #ffffff;
+  display: block;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  margin: -4px auto 22px;
+  max-width: 360px;
+  padding: 17px 18px;
+  text-align: center;
+  text-transform: uppercase;
+  width: min(82vw, 360px);
+}
+
 .facebook-comments {
   background: #ffffff;
   border: 1px solid #dddfe2;

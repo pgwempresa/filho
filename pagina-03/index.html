@@ -10,10 +10,10 @@
     <main class="page">
       <section class="checkout-view" id="checkout-view">
         <div class="checkout-shell">
-          <div class="secure-pill">🔒 Resgate seguro</div>
+          <div class="secure-pill"><span class="icon-lock" aria-hidden="true"></span> Resgate seguro</div>
 
           <section class="order-card">
-            <div class="card-title">Resumo do pedido</div>
+            <div class="card-title order-title"><span class="checkout-icon cart-icon" aria-hidden="true"></span>Resumo do pedido</div>
             <div class="product-row">
               <img
                 class="product-cover"
@@ -25,14 +25,20 @@
                 <p>21 dias de oração pelo seu filho</p>
               </div>
             </div>
-            <div class="total-row">
-              <span>Total</span>
-              <strong>R$ 0,00</strong>
+            <div class="price-stack">
+              <div class="compare-row">
+                <span>Valor normal</span>
+                <del>R$ 299,90</del>
+              </div>
+              <div class="total-row">
+                <span>Total hoje</span>
+                <strong>R$ 0,00</strong>
+              </div>
             </div>
           </section>
 
           <section class="form-card">
-            <div class="card-title">Dados pessoais</div>
+            <div class="card-title personal-title"><span class="checkout-icon user-icon" aria-hidden="true"></span>Dados pessoais</div>
             <p class="form-intro">
               Preencha seus dados para reservar o acesso gratuito ao material.
             </p>
@@ -66,60 +72,53 @@
 
               <button class="rescue-button" type="submit">Resgatar material gratuito</button>
             </form>
+            <div class="release-block hidden" id="release-block" aria-live="polite">
+              <p class="eyebrow">Liberação em andamento</p>
+              <h2>Aguarde a liberação do seu material gratuito</h2>
+
+              <div class="progress-shell">
+                <div class="progress-bar" id="progress-bar"></div>
+              </div>
+              <div class="progress-meta">
+                <span id="progress-label">0%</span>
+              </div>
+
+              <p class="impact-title">Ajude a gente a impactar mais mães</p>
+
+              <figure class="checkout-photo wait-photo">
+                <img src="/pagina-03/checkout.webp" alt="Mães reunidas em um momento de acolhimento" />
+              </figure>
+
+              <div class="cause">
+                <p class="cause-copy">
+                  Estamos te entregando esse material gratuitamente porque acreditamos que nenhuma mãe deve lutar sozinha.
+                  Se essa mensagem tocou seu coração, escolha um valor simbólico para ajudar esse projeto a continuar
+                  alcançando outras mães que também estão clamando pelos filhos.
+                </p>
+
+                <div class="amounts" id="amounts">
+                  <button type="button" data-amount="10">R$10</button>
+                  <button type="button" data-amount="20">R$20</button>
+                  <button type="button" data-amount="30">R$30</button>
+                  <button type="button" data-amount="50">R$50</button>
+                  <button type="button" data-amount="100">R$100</button>
+                  <button type="button" data-amount="150">R$150</button>
+                </div>
+
+                <div class="pix-box hidden" id="pix-box">
+                  <p class="pix-status" id="pix-status">Gerando Pix...</p>
+                  <img id="pix-qr" alt="QR Code Pix" class="hidden" />
+                  <textarea id="pix-code" readonly></textarea>
+                  <button type="button" id="copy-pix">Copiar código Pix</button>
+                </div>
+              </div>
+
+              <div class="complete hidden" id="complete">
+                <h3>Material liberado.</h3>
+                <p>Obrigado por caminhar com fé por seu filho.</p>
+              </div>
+            </div>
           </section>
-
-          <p class="tiny-note">
-            Seu material é gratuito. A próxima tela apenas mostra a liberação e uma forma opcional de apoiar o projeto.
-          </p>
-        </div>
-      </section>
-
-      <section class="release-view hidden" id="release-view" aria-live="polite">
-        <div class="release-shell">
-          <p class="eyebrow">Liberação em andamento</p>
-          <h2>Aguarde a liberação do seu material gratuito</h2>
-
-          <div class="progress-shell">
-            <div class="progress-bar" id="progress-bar"></div>
-          </div>
-          <div class="progress-meta">
-            <span id="progress-label">0%</span>
-          </div>
-
-          <p class="impact-title">Ajude a gente a impactar mais mães</p>
-
-          <figure class="checkout-photo wait-photo">
-            <img src="/pagina-03/checkout.webp" alt="Mães reunidas em um momento de acolhimento" />
-          </figure>
-
-          <div class="cause">
-            <p class="cause-copy">
-              Estamos te entregando esse material gratuitamente porque acreditamos que nenhuma mãe deve lutar sozinha.
-              Se essa mensagem tocou seu coração, escolha um valor simbólico para ajudar esse projeto a continuar
-              alcançando outras mães que também estão clamando pelos filhos.
-            </p>
-
-            <div class="amounts" id="amounts">
-              <button type="button" data-amount="10">R$10</button>
-              <button type="button" data-amount="20">R$20</button>
-              <button type="button" data-amount="30">R$30</button>
-              <button type="button" data-amount="50">R$50</button>
-              <button type="button" data-amount="100">R$100</button>
-              <button type="button" data-amount="150">R$150</button>
-            </div>
-
-            <div class="pix-box hidden" id="pix-box">
-              <p class="pix-status" id="pix-status">Gerando Pix...</p>
-              <img id="pix-qr" alt="QR Code Pix" class="hidden" />
-              <textarea id="pix-code" readonly></textarea>
-              <button type="button" id="copy-pix">Copiar código Pix</button>
-            </div>
-          </div>
-
-          <div class="complete hidden" id="complete">
-            <h3>Material liberado.</h3>
-            <p>Obrigado por caminhar com fé por seu filho.</p>
-          </div>
         </div>
       </section>
     </main>
