@@ -1,3 +1,5 @@
+import { sendMetaPurchase } from "./meta-purchase.js";
+
 const required = ["XPAG_BASE_URL", "XPAG_CLIENT_ID", "XPAG_CLIENT_SECRET"];
 
 function assertEnv() {
@@ -52,10 +54,21 @@ export default async function handler(request, response) {
       throw new Error(data.message || data.error || "Falha ao gerar Pix.");
     }
 
+    const transactionId = data.request_number || data.transaction_id || data.id || data.txid || externalId;
+    const eventId = `purchase-${transactionId}`;
+    const meta = await sendMetaPurchase({
+      amount: Number(amount),
+      lead,
+      request,
+      eventId,
+    }).catch((error) => ({ ok: false, error: error.message }));
+
     response.status(200).json({
-      id: data.request_number || data.transaction_id || data.id || data.txid || externalId,
+      id: transactionId,
       pixCode: data.copyPaste || data.pix_code || data.copy_paste || data.qr_code || data.code,
       qrCodeImage: data.qr_img || data.qr_url || data.qr_code_image || data.qrcode_image || data.qr_code_base64,
+      eventId,
+      meta,
       raw: data,
     });
   } catch (error) {

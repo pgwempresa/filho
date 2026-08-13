@@ -1,0 +1,53 @@
+.locked-hero {
+  text-align: center;
+}
+
+.lock-mark {
+  align-items: center;
+  background: rgba(4, 120, 76, 0.1);
+  border-radius: 999px;
+  display: flex;
+  font-size: 30px;
+  height: 68px;
+  justify-content: center;
+  margin: 0 auto 16px;
+  width: 68px;
+}
+
+.locked-hero h1 {
+  font-size: clamp(30px, 8.6vw, 42px);
+  letter-spacing: -0.05em;
+  line-height: 0.96;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.locked-hero p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.42;
+  margin: 0 0 22px;
+}
+
+.locked-download {
+  background: #c9d2db;
+  border-radius: 14px;
+  color: #566879;
+  cursor: not-allowed;
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin-top: 18px;
+  padding: 17px 16px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.locked-note {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  margin: 9px 0 0;
+  text-align: center;
+}

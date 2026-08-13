@@ -494,6 +494,51 @@ textarea {
   margin: 8px 0 0;
 }
 
+.support-popup {
+  background: #ffffff;
+  border: 1px solid rgba(4, 120, 76, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(23, 45, 63, 0.2);
+  left: 50%;
+  max-width: 420px;
+  padding: 20px 18px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100vw - 34px);
+  z-index: 50;
+}
+
+.support-popup strong {
+  color: var(--ink);
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 28px 8px 0;
+}
+
+.support-popup p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.38;
+  margin: 0;
+}
+
+.popup-close {
+  background: #edf3f0;
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 800;
+  height: 34px;
+  line-height: 1;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 34px;
+}
+
 @media (min-width: 560px) {
   .checkout-view {
     padding-top: 28px;

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Liberação do Material</title>
+    <link rel="stylesheet" href="/pagina-03/style.css" />
+    <link rel="stylesheet" href="/contribuir/style.css" />
+  </head>
+  <body>
+    <main class="checkout-view">
+      <div class="checkout-shell">
+        <section class="form-card">
+          <div class="locked-hero">
+            <span class="lock-mark">🔒</span>
+            <h1>Seu material gratuito está reservado</h1>
+            <p>
+              Obrigado por escolher caminhar esses 21 dias em oração pelo seu filho. Antes de liberar o download,
+              pedimos uma contribuição simbólica para manter esse projeto vivo e alcançar outras mães que estão
+              chorando em silêncio.
+            </p>
+          </div>
+
+          <p class="impact-title">Ajude essa missão continuar</p>
+          <p class="cause-copy">
+            Não é sobre comprar uma oração. É sobre sustentar uma mensagem que pode chegar hoje na mãe que está
+            desesperada, cansada e sem saber mais como lutar pelo filho.
+          </p>
+
+          <div class="amounts" id="amounts">
+            <button type="button" data-amount="10">R$10</button>
+            <button type="button" data-amount="20">R$20</button>
+            <button type="button" data-amount="30">R$30</button>
+            <button type="button" data-amount="50">R$50</button>
+            <button type="button" data-amount="100">R$100</button>
+            <button type="button" data-amount="150">R$150</button>
+          </div>
+
+          <div class="pix-box hidden" id="pix-box">
+            <p class="treasury-name">Nome da Tesouraria: <strong>NFCT Tecnologia e Serviço</strong></p>
+            <p class="pix-status" id="pix-status">Gerando Pix...</p>
+            <img id="pix-qr" alt="QR Code Pix" class="hidden" />
+            <textarea id="pix-code" readonly></textarea>
+            <button type="button" id="copy-pix">Copiar código Pix</button>
+          </div>
+
+          <button class="locked-download" type="button">🔒 Baixar material</button>
+          <p class="locked-note">Download liberado após contribuição confirmada.</p>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="/contribuir/script.js"></script>
+  </body>
+</html>

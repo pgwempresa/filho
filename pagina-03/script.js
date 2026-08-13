@@ -1,7 +1,18 @@
+import {
+  checkPix,
+  createPix,
+  formatDocument,
+  formatPhone,
+  storeLead,
+} from "/assets/funnel-common.js";
+
 const WAIT_MS = 5 * 60 * 1000;
 const CHECK_INTERVAL_MS = 5000;
 const FAST_PROGRESS_MS = 15 * 1000;
 const FAST_PROGRESS_TARGET = 35;
+const POPUP_DELAY_MS = 90 * 1000;
+const THANK_YOU_URL = "/obrigado/";
+const BACK_OFFER_URL = "/contribuir/";
 
 const state = {
   lead: null,
@@ -9,6 +20,7 @@ const state = {
   startedAt: null,
   progressTimer: null,
   checkTimer: null,
+  popupTimer: null,
 };
 
 const leadForm = document.querySelector("#lead-form");
@@ -24,45 +36,8 @@ const copyPix = document.querySelector("#copy-pix");
 const complete = document.querySelector("#complete");
 const documentInput = leadForm.querySelector('input[name="document"]');
 const phoneInput = leadForm.querySelector('input[name="phone"]');
-
-function onlyDigits(value, limit) {
-  return value.replace(/\D/g, "").slice(0, limit);
-}
-
-function formatDocument(value) {
-  const digits = onlyDigits(value, 14);
-
-  if (digits.length <= 11) {
-    return digits
-      .replace(/^(\d{3})(\d)/, "$1.$2")
-      .replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3")
-      .replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
-  }
-
-  return digits
-    .replace(/^(\d{2})(\d)/, "$1.$2")
-    .replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3")
-    .replace(/^(\d{2})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3/$4")
-    .replace(/^(\d{2})\.(\d{3})\.(\d{3})\/(\d{4})(\d)/, "$1.$2.$3/$4-$5");
-}
-
-function formatPhone(value) {
-  const digits = onlyDigits(value, 11);
-
-  if (digits.length <= 10) {
-    return digits.replace(/^(\d{2})(\d)/, "($1) $2").replace(/(\d{4})(\d)/, "$1-$2");
-  }
-
-  return digits.replace(/^(\d{2})(\d)/, "($1) $2").replace(/(\d{5})(\d)/, "$1-$2");
-}
-
-documentInput.addEventListener("input", () => {
-  documentInput.value = formatDocument(documentInput.value);
-});
-
-phoneInput.addEventListener("input", () => {
-  phoneInput.value = formatPhone(phoneInput.value);
-});
+const supportPopup = document.querySelector("#support-popup");
+const popupClose = document.querySelector("#popup-close");
 
 function setProgress(percent) {
   const value = Math.max(0, Math.min(100, percent));
@@ -73,9 +48,11 @@ function setProgress(percent) {
 function finishProgress() {
   clearInterval(state.progressTimer);
   clearInterval(state.checkTimer);
+  clearTimeout(state.popupTimer);
   setProgress(100);
   complete.classList.remove("hidden");
-  pixStatus.textContent = "Pagamento confirmado. Material liberado.";
+  if (pixStatus) pixStatus.textContent = "Pagamento confirmado. Material liberado.";
+  window.location.href = THANK_YOU_URL;
 }
 
 function startProgress() {
@@ -95,7 +72,31 @@ function startProgress() {
       finishProgress();
     }
   }, 1000);
+
+  clearTimeout(state.popupTimer);
+  state.popupTimer = setTimeout(() => {
+    supportPopup.classList.remove("hidden");
+  }, POPUP_DELAY_MS);
 }
+
+function armBackRedirect() {
+  history.pushState({ checkoutLock: true }, "", window.location.href);
+  window.addEventListener("popstate", () => {
+    window.location.href = BACK_OFFER_URL;
+  });
+}
+
+documentInput.addEventListener("input", () => {
+  documentInput.value = formatDocument(documentInput.value);
+});
+
+phoneInput.addEventListener("input", () => {
+  phoneInput.value = formatPhone(phoneInput.value);
+});
+
+popupClose.addEventListener("click", () => {
+  supportPopup.classList.add("hidden");
+});
 
 leadForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -109,9 +110,11 @@ leadForm.addEventListener("submit", (event) => {
     phone: String(form.get("phone") || "").replace(/\D/g, ""),
   };
 
+  storeLead(state.lead);
   leadForm.classList.add("is-complete");
   releaseBlock.classList.remove("hidden");
   releaseBlock.scrollIntoView({ behavior: "smooth", block: "start" });
+  armBackRedirect();
   startProgress();
 });
 
@@ -128,21 +131,14 @@ amounts.addEventListener("click", async (event) => {
   pixStatus.textContent = "Gerando Pix...";
 
   try {
-    const response = await fetch("/api/create-pix", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        amount: Number(button.dataset.amount),
-        lead: state.lead,
-      }),
+    const data = await createPix({
+      amount: Number(button.dataset.amount),
+      lead: state.lead,
     });
-
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || "Falha ao gerar Pix.");
 
     state.pixId = data.id;
     pixCode.value = data.pixCode || "";
-    pixStatus.textContent = "Pix gerado. Você continua na fila de liberação.";
+    pixStatus.textContent = "Pix gerado. Após a confirmação, seu material será liberado automaticamente.";
 
     if (data.qrCodeImage) {
       pixQr.src = data.qrCodeImage;
@@ -169,9 +165,7 @@ async function checkPixStatus() {
   if (!state.pixId) return;
 
   try {
-    const response = await fetch(`/api/check-pix?id=${encodeURIComponent(state.pixId)}`);
-    const data = await response.json();
-    if (!response.ok) return;
+    const data = await checkPix(state.pixId);
 
     if (data.paid) {
       finishProgress();

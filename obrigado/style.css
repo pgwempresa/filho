@@ -1,0 +1,81 @@
+:root {
+  --bg: #eef3f7;
+  --ink: #0d2638;
+  --muted: #637386;
+  --green: #04784c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(4, 120, 76, 0.13), transparent 38%),
+    var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+}
+
+.thanks-page {
+  align-items: center;
+  display: flex;
+  min-height: 100svh;
+  padding: 22px 14px;
+}
+
+.thanks-card {
+  background: #ffffff;
+  border: 1px solid rgba(13, 38, 56, 0.06);
+  border-radius: 22px;
+  box-shadow: 0 18px 42px rgba(23, 45, 63, 0.12);
+  margin: 0 auto;
+  max-width: 450px;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.success-mark {
+  align-items: center;
+  background: rgba(4, 120, 76, 0.1);
+  border-radius: 999px;
+  color: var(--green);
+  display: flex;
+  font-size: 32px;
+  font-weight: 800;
+  height: 70px;
+  justify-content: center;
+  margin: 0 auto 18px;
+  width: 70px;
+}
+
+h1 {
+  font-size: clamp(31px, 9vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.96;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.42;
+  margin: 0 0 22px;
+}
+
+.download-button {
+  background: linear-gradient(180deg, #0aa76b, #04784c);
+  border-radius: 14px;
+  box-shadow: 0 12px 22px rgba(4, 120, 76, 0.2);
+  color: #ffffff;
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  padding: 17px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+}

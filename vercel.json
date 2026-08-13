@@ -9,6 +9,14 @@
     {
       "source": "/pagina-03",
       "destination": "/pagina-03/index.html"
+    },
+    {
+      "source": "/obrigado",
+      "destination": "/obrigado/index.html"
+    },
+    {
+      "source": "/contribuir",
+      "destination": "/contribuir/index.html"
     }
   ],
   "headers": [
