@@ -167,6 +167,31 @@ h1 {
   margin: 0;
 }
 
+.product-benefits {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.product-benefits li {
+  align-items: start;
+  color: #33495d;
+  display: grid;
+  font-size: 13px;
+  font-weight: 650;
+  gap: 7px;
+  grid-template-columns: 16px 1fr;
+  line-height: 1.28;
+}
+
+.product-benefits li::before {
+  color: var(--green);
+  content: "✓";
+  font-weight: 800;
+}
+
 .price-stack {
   border-top: 1px solid var(--line);
   display: grid;
