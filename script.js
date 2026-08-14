@@ -2,6 +2,7 @@ const comments = [
   {
     name: "Ana Paula Ribeiro",
     initials: "AP",
+    avatar: "./assets/comment-avatars/ana-paula.webp",
     text: "Eu chorei vendo esse vídeo. Meu filho estava cada dia mais distante de Deus e essa oração me deu uma direção que eu não tinha mais. Comecei hoje e já senti paz no coração.",
     likes: 48,
     time: "2 h",
@@ -9,6 +10,7 @@ const comments = [
       {
         name: "Marcia Cristina",
         initials: "MC",
+        avatar: "./assets/comment-avatars/marcia-cristina.webp",
         text: "Ana, aconteceu parecido aqui em casa. Fiz a oração ontem à noite e pela primeira vez em semanas consegui dormir sem aquele aperto.",
         likes: 19,
         time: "42 min",
@@ -16,6 +18,7 @@ const comments = [
       {
         name: "Juliana Mendes",
         initials: "JM",
+        avatar: "./assets/comment-avatars/juliana-mendes.webp",
         text: "Também comecei hoje. É simples, mas fala direto com a dor de mãe.",
         likes: 12,
         time: "18 min",
@@ -25,6 +28,7 @@ const comments = [
   {
     name: "Patricia Alves",
     initials: "PA",
+    avatar: "./assets/comment-avatars/patricia-alves.webp",
     text: "Que explicação abençoada. Não fica enrolando, vai direto no ponto e mostra como fazer a oração pelos filhos. Vou mandar para minha irmã também.",
     likes: 63,
     time: "1 h",
@@ -33,6 +37,7 @@ const comments = [
   {
     name: "Renata Fernandes",
     initials: "RF",
+    avatar: "./assets/comment-avatars/renata-fernandes.webp",
     text: "Sou mãe solo e estava me sentindo sem forças. Essa missionária falou exatamente o que eu precisava ouvir. Obrigada por compartilhar isso com outras mães.",
     likes: 37,
     time: "55 min",
@@ -41,6 +46,7 @@ const comments = [
   {
     name: "Luciana Torres",
     initials: "LT",
+    avatar: "./assets/comment-avatars/luciana-torres.webp",
     text: "Meu adolescente anda muito fechado, preso no celular e respondendo mal. Fiz a oração com fé e vou continuar pelos próximos dias. Senti esperança de novo.",
     likes: 29,
     time: "31 min",
@@ -49,6 +55,7 @@ const comments = [
   {
     name: "Fernanda Lima",
     initials: "FL",
+    avatar: "./assets/comment-avatars/fernanda-lima.webp",
     text: "Finalmente uma mensagem para mães que estão lutando pelos filhos sem julgamento. A oração é forte e muito bonita.",
     likes: 54,
     time: "12 min",
@@ -69,7 +76,9 @@ if (delayedCta) {
 function renderComment(comment, nested = false) {
   return `
     <article class="${nested ? "comment comment-nested" : "comment"}">
-      <div class="avatar" aria-hidden="true">${comment.initials}</div>
+      <div class="avatar" aria-hidden="true">
+        <img src="${comment.avatar}" alt="" loading="lazy" width="38" height="38" />
+      </div>
       <div class="comment-body">
         <div class="bubble-wrap">
           <div class="bubble">

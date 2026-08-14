@@ -146,18 +146,20 @@ h1 span {
 }
 
 .avatar {
-  align-items: center;
-  background: linear-gradient(135deg, #f4b8c7, #b84d66);
+  background: #e4e6eb;
   border-radius: 999px;
-  color: #ffffff;
-  display: flex;
   flex: 0 0 38px;
-  font-size: 12px;
-  font-weight: 800;
   height: 38px;
-  justify-content: center;
   margin-top: 2px;
+  overflow: hidden;
   width: 38px;
+}
+
+.avatar img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .comment-body {
