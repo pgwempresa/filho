@@ -83,6 +83,35 @@ h1 span {
   width: min(82vw, 360px);
 }
 
+.primary-cta-delayed {
+  margin-bottom: 0;
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  padding-top: 0;
+  pointer-events: none;
+  transform: translateY(14px) scale(0.98);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    max-height 0.45s ease,
+    padding 0.45s ease,
+    margin 0.45s ease;
+}
+
+.primary-cta-delayed.is-visible {
+  margin-bottom: 22px;
+  margin-top: -4px;
+  max-height: 80px;
+  opacity: 1;
+  padding-bottom: 17px;
+  padding-top: 17px;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
 .facebook-comments {
   background: #ffffff;
   border: 1px solid #dddfe2;

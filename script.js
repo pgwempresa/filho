@@ -56,6 +56,16 @@ const comments = [
   },
 ];
 
+const ctaDelayMs = 174 * 1000;
+const delayedCta = document.querySelector(".primary-cta-delayed");
+
+if (delayedCta) {
+  window.setTimeout(() => {
+    delayedCta.classList.add("is-visible");
+    delayedCta.removeAttribute("aria-hidden");
+  }, ctaDelayMs);
+}
+
 function renderComment(comment, nested = false) {
   return `
     <article class="${nested ? "comment comment-nested" : "comment"}">
