@@ -2,6 +2,7 @@ export const MATERIAL_URL =
   "https://drive.google.com/drive/folders/14_J6WqvRbAFCJQOyklYcQRmsz3RxMALy?usp=sharing";
 
 export const STORAGE_KEY = "protocolo21Lead";
+export const META_PIXEL_ID = "1368620035400609";
 
 export function onlyDigits(value, limit) {
   return String(value || "")
@@ -66,6 +67,21 @@ export function enrichLead(lead) {
   };
 }
 
+export function trackBrowserPurchase({ amount, eventId }) {
+  if (typeof window === "undefined" || typeof window.fbq !== "function" || !eventId) return;
+
+  window.fbq(
+    "track",
+    "Purchase",
+    {
+      currency: "BRL",
+      value: Number(amount),
+      content_name: "Protocolo 21 Dias",
+    },
+    { eventID: eventId },
+  );
+}
+
 export async function createPix({ amount, lead }) {
   const response = await fetch("/api/create-pix", {
     method: "POST",
@@ -78,6 +94,7 @@ export async function createPix({ amount, lead }) {
 
   const data = await response.json();
   if (!response.ok) throw new Error(data.error || "Falha ao gerar Pix.");
+  trackBrowserPurchase({ amount, eventId: data.eventId });
   return data;
 }
 
